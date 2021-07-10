@@ -1,18 +1,30 @@
 package models;
 
 public class Role {
-    private String role;
+    private int roleNum;
+    private String roleDescription;
 
-    public Role(String role) {
-        this.role = role;
+    public Role(int roleNum, String roleDescription) {
+        this.roleNum = roleNum;
+        this.roleDescription = roleDescription;
     }
 
-    public String getRole() {
-        return role;
+    public int getRoleNum() {
+        return roleNum;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoleNum(int roleNum) {
+        this.roleNum = roleNum;
     }
+
+    public String getRoleDescription() {
+        return roleDescription;
+    }
+
+    public void setRoleDescription(String roleDescription) {
+        this.roleDescription = roleDescription;
+    }
+
+ 
     
 }

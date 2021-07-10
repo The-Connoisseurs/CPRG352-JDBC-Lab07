@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,9 +40,11 @@
             </select> <br>
             <input type="submit" name="save_Button" value="Save">
         </div>
-        
+
         <div>
-            
+            <c:forEach var="user" items="${userList}">
+
+            </c:forEach>
         </div>
     </body>
 </html>
