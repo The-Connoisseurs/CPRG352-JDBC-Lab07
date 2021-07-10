@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package services;
 
-/**
- *
- * @author 855474
- */
+import dataaccess.UserDB;
+import java.util.List;
+import models.User;
+
 public class UserService {
-    
+
+    public User get(int id) throws Exception {
+        return null;
+
+    }
+
+    public List<User> getAll(String email) throws Exception {
+        return null;
+    }
+
+    public void insert(String title, String contents, String owner) throws Exception {
+
+    }
+
+    public void update(int noteId, String title, String contents, String owner) throws Exception {
+
+    }
+
+    public void delete(int noteId) throws Exception {
+
+    }
 }

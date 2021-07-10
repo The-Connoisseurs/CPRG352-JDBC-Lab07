@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/UserDBManagementSys"/>
+<Context path="/UserDBManagementSys">
     <Resource
         name="jdbc/userdb"
         url="jdbc:mysql://localhost:3306/userdb"
