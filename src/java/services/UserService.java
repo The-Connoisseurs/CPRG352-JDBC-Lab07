@@ -24,9 +24,10 @@ public class UserService {
         userDB.insert(user);
     }
 
-    public void update(User user) throws Exception {
-       UserDB userDB = new UserDB();
-       userDB.update(user);
+    public void update(String email, boolean isActive, String firstName, String lastName, String password, int role) throws Exception {
+        User user = new User(email, isActive, firstName, lastName, password, role);
+        UserDB userDB = new UserDB();
+        userDB.update(user);
     }
 
     public void delete(String email) throws Exception {

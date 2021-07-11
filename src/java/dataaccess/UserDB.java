@@ -12,7 +12,7 @@ import models.User;
  * information to be viewed and provides the means to create, delete and update
  * users.
  *
- * @author Jeric Geronimo
+ * @author Jeric Geronimo & Don Laliberte
  */
 public class UserDB {
 
@@ -108,7 +108,7 @@ public class UserDB {
         ConnectionPool cp = ConnectionPool.getInstance();
         Connection con = cp.getConnection();
         PreparedStatement ps = null;
-        String sql = "UPDATE user SET isActive=?, firstName=?, lastName=?, password=?, role=? WHERE email=?";
+        String sql = "UPDATE user SET active=?, first_name=?, last_name=?, password=?, role=? WHERE email=?";
 
         try {
             ps = con.prepareStatement(sql);

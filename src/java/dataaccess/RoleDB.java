@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Role;
 
+/**
+ * Program description: provides access to the database, allowing role
+ * information to be viewed 
+ * 
+ * @author Jeric Geronimo & Don Laliberte
+ */
 public class RoleDB {
     public List<Role> getAll() throws Exception {
         List<Role> roleList = new ArrayList<>();

@@ -35,9 +35,9 @@
                 <input type="text" placeholder="Last Name" name="edit_lastName" value=""><br>
                 <input type="text" placeholder="Password" name="edit_password" value=""><br>
                 <select name="edit_role">
-                    <option value="">System Admin</option>
-                    <option value="">Regular User</option>
-                    <option value="">Company Admin</option>
+                    <option value="1">System Admin</option>
+                    <option value="2">Regular User</option>
+                    <option value="3">Company Admin</option>
                 </select> <br>
                 <p style="display:inline-block;">Active?</p>
                 <input type="checkbox" name="edit_active" value=""><br>
