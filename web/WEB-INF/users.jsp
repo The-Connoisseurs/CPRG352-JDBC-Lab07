@@ -40,6 +40,15 @@
             <input type="submit" name="save_Button" value="Save">
         </div>
 
+        <div class="input_fields" id="delete-wrapper">
+            <form action="" method="post">
+                <h3 >Delete User</h3>
+                <input type="text" placeholder="Email" name="delete_email" value=""><br>
+                <input type="submit" name="delete_Button" value="Delete">
+                <input type="hidden" name="action" value="delete">
+            </form>
+        </div>
+
         <div class="view_database">
             <h3 id="view-header">View Users</h3>
             <table>
@@ -59,7 +68,7 @@
                 </c:forEach>
             </table>
         </div>
-        
+
         <p>${test_message}</p>
     </body>
 </html>

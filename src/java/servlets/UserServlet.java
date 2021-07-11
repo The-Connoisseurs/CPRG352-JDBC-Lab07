@@ -19,13 +19,12 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // create session object
-        HttpSession session = request.getSession();
+
         // create user service object
         UserService userService = new UserService();
+
         // create List object to store user information
         List<User> userList = null;
-        
         try {
             // retrieve all users in the DB
             userList = userService.getAll();
@@ -41,48 +40,53 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        String email, firstName, lastName, password, isActive;
+        int role;
+        boolean activeStatus;
+        
         // create user service object
         UserService userService = new UserService();
-
         // grabs the actions available in the application
         String action = request.getParameter("action");
+        
 
         try {
             switch (action) {
+                // PERSIST ERRORS: IN PROGRESS
                 case "add":
                     // grabs the email from the input field
-                    String email = request.getParameter("input_email");
+                    email = request.getParameter("input_email");
                     // grabs the email from the input field
-                    String firstName = request.getParameter("input_firstName");
+                    firstName = request.getParameter("input_firstName");
                     // grabs the email from the input field
-                    String lastName = request.getParameter("input_lastName");
+                    lastName = request.getParameter("input_lastName");
                     // grabs the password from the input field
-                    String password = request.getParameter("input_password");
+                    password = request.getParameter("input_password");
                     // grabs the role from the dropdown list
-                    int role = Integer.parseInt(request.getParameter("select_role"));
+                    role = Integer.parseInt(request.getParameter("select_role"));
                     // grabs the isActive from the checkbox
-                    String isActive = request.getParameter("input_active");
-                    boolean activeStatus = true;
+                    isActive = request.getParameter("input_active");
+
                     // checks if user has entered all the necessary information
                     if (email != null || !email.equals("") && firstName != null || !firstName.equals("") && lastName != null || !lastName.equals("") && password != null || !password.equals("")) {
-                        if (isActive == null || isActive.equals("")) {
+                        if (isActive != null || !isActive.equals("")) {
+                            activeStatus = true;
+                        } else {
                             activeStatus = false;
                         }
-
-                        try {
-                            userService.insert(email, activeStatus, firstName, lastName, password, role);
-                        } catch (Exception ex) {
-                            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-                        }
                     }
-                    request.setAttribute("test_message", "works"); //DEBUG
                     break;
 
                 case "update":
                     break;
 
                 case "delete":
+                    // grabs the email from the input field
+                    email = request.getParameter("delete_email");
+                    if (email != null || !email.equals("")){
+                        userService.delete(email);
+                    }
                     break;
             }
         } catch (Exception ex) {
