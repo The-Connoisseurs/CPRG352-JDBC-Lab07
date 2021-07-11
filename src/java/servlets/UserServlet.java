@@ -22,9 +22,9 @@ public class UserServlet extends HttpServlet {
 
         // create user service object
         UserService userService = new UserService();
-
         // create List object to store user information
         List<User> userList = null;
+        
         try {
             // retrieve all users in the DB
             userList = userService.getAll();
@@ -75,6 +75,8 @@ public class UserServlet extends HttpServlet {
                         } else {
                             activeStatus = false;
                         }
+                        
+                        userService.insert(email, true, firstName, lastName, password, role);
                     }
                     break;
 

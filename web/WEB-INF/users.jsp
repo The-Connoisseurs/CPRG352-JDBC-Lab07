@@ -28,21 +28,27 @@
         </div>
 
         <div class="input_fields" id="edit-wrapper">
-            <h3 >Edit User</h3>
-            <input type="text" placeholder="First Name" name="edit_firstName" value=""><br>
-            <input type="text" placeholder="Last Name" name="edit_lastName" value=""><br>
-            <input type="text" placeholder="Password" name="edit_password" value=""><br>
-            <select>
-                <option value="">System Admin</option>
-                <option value="">Regular User</option>
-                <option value="">Company Admin</option>
-            </select> <br>
-            <input type="submit" name="save_Button" value="Save">
+            <form action="" method="post">
+                <h3>Edit User</h3>
+                <input type="text" placeholder="Email" name="email_identifier" value=""><br>
+                <input type="text" placeholder="First Name" name="edit_firstName" value=""><br>
+                <input type="text" placeholder="Last Name" name="edit_lastName" value=""><br>
+                <input type="text" placeholder="Password" name="edit_password" value=""><br>
+                <select name="edit_role">
+                    <option value="">System Admin</option>
+                    <option value="">Regular User</option>
+                    <option value="">Company Admin</option>
+                </select> <br>
+                <p style="display:inline-block;">Active?</p>
+                <input type="checkbox" name="edit_active" value=""><br>
+                <input type="submit" name="edit_Button" value="Edit">
+                <input type="hidden" name="action" value="update">
+            </form>
         </div>
 
         <div class="input_fields" id="delete-wrapper">
             <form action="" method="post">
-                <h3 >Delete User</h3>
+                <h3>Delete User</h3>
                 <input type="text" placeholder="Email" name="delete_email" value=""><br>
                 <input type="submit" name="delete_Button" value="Delete">
                 <input type="hidden" name="action" value="delete">
