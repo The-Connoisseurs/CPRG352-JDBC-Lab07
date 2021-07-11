@@ -67,14 +67,12 @@ public class UserServlet extends HttpServlet {
                     role = Integer.parseInt(request.getParameter("select_role"));
                     // grabs the isActive from the checkbox
                     isActive = request.getParameter("input_active");
-
+                    activeStatus = true;
                     // checks if user has entered all the necessary information
                     if (email != null || !email.equals("") && firstName != null || !firstName.equals("") && lastName != null || !lastName.equals("") && password != null || !password.equals("")) {
-                        if (isActive != null || !isActive.equals("")) {
-                            activeStatus = true;
-                        } else {
+                        if (isActive != null ) {
                             activeStatus = false;
-                        }
+                        } 
                         
                         userService.insert(email, true, firstName, lastName, password, role);
                     }
