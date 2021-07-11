@@ -11,7 +11,7 @@
         <div class="input_fields" id="add-wrapper">
             <form action="" method="post">
                 <h3>Add User</h3>
-                <input type="text" placeholder="Email" name="input_email" value=""><br>
+                <input type="email" placeholder="Email" name="input_email" value=""><br>
                 <input type="text" placeholder="First Name" name="input_firstName" value=""><br>
                 <input type="text" placeholder="Last Name" name="input_lastName" value=""><br>
                 <input type="text" placeholder="Password" name="input_password" value=""><br>
@@ -30,7 +30,7 @@
         <div class="input_fields" id="edit-wrapper">
             <form action="" method="post">
                 <h3>Edit User</h3>
-                <input type="text" placeholder="Email" name="email_identifier" value=""><br>
+                <input type="email" placeholder="Email" name="email_identifier" value=""><br>
                 <input type="text" placeholder="First Name" name="edit_firstName" value=""><br>
                 <input type="text" placeholder="Last Name" name="edit_lastName" value=""><br>
                 <input type="text" placeholder="Password" name="edit_password" value=""><br>
@@ -69,12 +69,23 @@
                         <th>${user.getEmail()}</th>
                         <th>${user.getFirstName()}</th>
                         <th>${user.getLastName()}</th>
-                        <th>${user.getRole()}</th>
+                        <th>
+                            <c:choose>
+                                <c:when test="${user.getRole() == 1}">
+                                    <p>System Admin</p>
+                                </c:when>
+                                <c:when test="${user.getRole() == 2}">
+                                    <p>Regular User</p>
+                                </c:when>   
+                                <c:when test="${user.getRole() == 3}">
+                                    <p>Company Admin</p>
+                                </c:when>
+                            </c:choose>
+                        </th>
                     </tr>
                 </c:forEach>
             </table>
         </div>
 
-        <p>${test_message}</p>
     </body>
 </html>

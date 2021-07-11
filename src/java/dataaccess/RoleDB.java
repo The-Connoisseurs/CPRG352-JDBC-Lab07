@@ -9,11 +9,12 @@ import models.Role;
 
 /**
  * Program description: provides access to the database, allowing role
- * information to be viewed 
- * 
+ * information to be viewed
+ *
  * @author Jeric Geronimo & Don Laliberte
  */
 public class RoleDB {
+
     public List<Role> getAll() throws Exception {
         List<Role> roleList = new ArrayList<>();
         ConnectionPool cp = ConnectionPool.getInstance();
@@ -45,5 +46,31 @@ public class RoleDB {
         }
 
         return roleList;
+    }
+
+    public Role getDescription(int roleNum) throws Exception {
+        Role role = null;
+        ConnectionPool conPool = ConnectionPool.getInstance();
+        Connection con = conPool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT role_name FROM role WHERE role_id=?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, roleNum);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String roleDesc = rs.getString(3);
+                role = new Role(roleNum, roleDesc);
+            }
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            conPool.freeConnection(con);
+        }
+
+        return role;
     }
 }

@@ -8,7 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Role;
 import models.User;
+import services.RoleService;
 import services.UserService;
 
 public class UserServlet extends HttpServlet {
@@ -19,6 +21,8 @@ public class UserServlet extends HttpServlet {
 
         // create user service object
         UserService userService = new UserService();
+        // create role service object
+        RoleService roleService = new RoleService();
         // create List object to store user information
         List<User> userList = null;
 
